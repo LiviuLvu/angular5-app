@@ -1,8 +1,7 @@
-## Angular 5 study files  
+# Angular 5 study files  
+### Current progress: Completed section 2
 `https://www.udemy.com/the-complete-guide-to-angular-2/learn/v4/content`  
 Purpouse of this repo is to help follow course made by Maximilian Schwarzmüller 
-
-
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.28.3.
 
 ## Development server
