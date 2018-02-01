@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { element } from 'protractor';
+import { Component, OnInit, Input} from '@angular/core';
 
 @Component({
   selector: 'app-server-element',
@@ -6,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./server-element.component.css']
 })
 export class ServerElementComponent implements OnInit {
-
+  @Input() element: {type: string, name: string, content: string};
+  
   constructor() { }
 
   ngOnInit() {
