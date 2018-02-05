@@ -1,6 +1,19 @@
 import { element } from 'protractor';
-import { Component, OnInit, Input, OnChanges, SimpleChanges, DoCheck, AfterContentInit, AfterContentChecked } from '@angular/core';
-import { AfterViewChecked, AfterViewInit, OnDestroy } from '@angular/core/src/metadata/lifecycle_hooks';
+import { 
+  Component,
+  OnInit,
+  Input,
+  OnChanges,
+  SimpleChanges,
+  DoCheck,
+  AfterContentInit,
+  AfterContentChecked,
+  AfterViewChecked,
+  AfterViewInit,
+  OnDestroy, 
+  ViewChild, 
+  ElementRef,
+  ContentChild } from '@angular/core';
 
 @Component({
   selector: 'app-server-element',
@@ -8,9 +21,18 @@ import { AfterViewChecked, AfterViewInit, OnDestroy } from '@angular/core/src/me
   styleUrls: ['./server-element.component.css']
 })
 export class ServerElementComponent implements 
-  OnInit, OnChanges, DoCheck, AfterContentInit, AfterContentChecked, AfterViewInit, AfterViewChecked, OnDestroy {
+  OnInit,
+  OnChanges,
+  DoCheck,
+  AfterContentInit,
+  AfterContentChecked,
+  AfterViewInit,
+  AfterViewChecked,
+  OnDestroy {
   @Input() element: {type: string, name: string, content: string};
   @Input() name: string;
+  @ViewChild('heading') header: ElementRef;
+  @ContentChild('contentParagraph') paragraph: ElementRef;
 
   constructor() { 
     console.log('constructor called');
@@ -23,6 +45,8 @@ export class ServerElementComponent implements
 
   ngOnInit() {
     console.log('ngOnInit called');
+    console.log('Text Content: ', this.header.nativeElement.textContent);
+    console.log('text of ng-content: ', this.paragraph.nativeElement.textContent);
   }
 
   ngDoCheck() {
@@ -39,6 +63,8 @@ export class ServerElementComponent implements
 
   ngAfterViewInit() {
     console.log('ngAfterViewInit called');
+    console.log('Text Content: ', this.header.nativeElement.textContent);
+    console.log('text of ng-content: ', this.paragraph.nativeElement.textContent);
   }
 
   ngAfterViewChecked() {
