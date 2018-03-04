@@ -3,11 +3,24 @@
     <div class="col-xs-12">
       <p appBasicHighlight>This line is customized by a custom directive</p>
       <p appBetterHighlight [defaultColor]="'pink'" [highlightColor]="'purple'">This line is customized by a better custom directive using a renderer</p>
+      
+      <button 
+        class="btn btn-primary"
+        (click)="onlyOdd = !onlyOdd">Toggle Odd | Primary</button>
+      
       <ul class="list-group">
-        <li class="list-group-item"
-          *ngFor="let item of items">
-          {{ item }}
-        </li>
+        <div *appUnless="!onlyOdd">
+          <li class="list-group-item"
+            *ngFor="let odd of oddNumbers">
+            {{ odd }}
+          </li>
+        </div>
+        <div *appUnless="onlyOdd">
+          <li class="list-group-item"
+            *ngFor="let even of evenNumbers">
+            {{ even }}
+          </li>
+        </div>
       </ul>
     </div>
   </div>
